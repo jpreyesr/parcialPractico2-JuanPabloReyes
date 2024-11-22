@@ -8,32 +8,39 @@
     <table>
       <thead>
         <tr>
-          <th class="h4">Trainers's Name</th>
+          <th class="h4">Trainer's Name</th>
           <th class="h4">Trainer's Image</th>
-          <th class="h4">Trainer's Samll snapshot</th>
+          <th class="h4">Trainer's Small Snapshot</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          *ngFor="let t of trainers"
+          *ngFor="let trainer of trainers"
           class="row-table"
-          (click)="onSelected(t)"
+          routerLink="/trainers/{{trainer.id}}"
         >
           <td>
-            <dd>{{ t.name }}</dd>
+            <dd>{{ trainer.name }}</dd>
           </td>
           <td>
             <img
-              [src]="t.imageUrl"
+              [src]="trainer.imageUrl"
               alt="Trainer's Image"
               class="img-thumbnail"
             />
           </td>
           <td>
-            <dd>{{ t.smallSnopsies }}</dd>
+            <dd>{{ trainer.smallSnopsies }}</dd>
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align: center; font-weight: bold;">
+            Pokemones {{ numeroPokemones() }}
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
